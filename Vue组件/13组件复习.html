@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>                                                                                 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件复习</title>
+</head>
+<body>
+    <div id="app">
+       <h1>我是父组件 {{msg}} </h1> 
+<my-component name="我是张石洋" content="我来自哈尔滨" @yueyue="callback">
+
+</my-component>
+<my-component name="我是李悦"content="我来自哈尔滨"></my-component>
+    </div>
+   <div id="app2">
+
+   </div>
+   <template id="temp1">
+    <div><h2 style="color: chocolate;"> {{name}} {{count}} </h2>  <button @click="add()"> 点击加1</button>
+    <p style="color:cadetblue;"> {{content}} </p>
+    </div>
+   </template>
+    <script src="vue.js"></script>
+    <script>
+        
+       new Vue({
+           el:"#app",
+           data:{
+               msg:'（默认值）meiyou'
+
+           },
+           methods:{
+              callback(count){
+                  console.log(count);
+                  this.msg=count;
+              }
+           },
+            components:{
+                'my-component':{
+                    template:'#temp1',
+                    // props:['name','content
+                    
+                    props:{
+                        name:{
+                            type:String,
+                            default:'我是字符串',
+                           },
+                    
+                    content:String,
+                },
+                
+                data(){
+                    return {
+                        count:0,
+                        msg:"liyue"
+                    }
+                },
+                methods:{
+                    add(){
+                        this.count++;
+                        this.$emit('yueyue',this.count)//将count传到父组件里面
+                        //逻辑思维点击按钮，调用add()方法，add方法通过$emit调用yueyue,callback,父组件的方法
+                    }
+                }
+           },
+            }     
+       })
+       new Vue({
+           el:"#app2",
+           data:{
+
+           }
+       })
+       
+    </script>
+</body>
+</html>
