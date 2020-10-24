@@ -4,10 +4,11 @@
     <div id="nav">
       <!-- <router-link to="/home">Home</router-link> | -->
       <router-link to="/about">About</router-link>|
-      
+      <!-- <router-link to="/yueyue">❤李悦❤|</router-link> -->
+      <router-link :to="{name:'yueyue',params:{name:'李悦悦' ,age:20}}">李悦❤张石洋</router-link>
     
-     <router-link :to="{path:'/test2',query:{id:20183164,name:'姓名：李悦  学校:黑龙江大学'}}">TEST2|</router-link>
-     <router-link :to="{path:'/home',query:{id:2112018020228,name :'姓名：张石洋学校：哈尔滨工程大学'}}">  Home</router-link>
+     <router-link :to="{path:'/test2',query:{id:20183164,name:'姓名：李悦  学校:黑龙江大学'}}">李悦|</router-link>
+     <router-link :to="{path:'/home',query:{id:2112018020228,name :'姓名：张石洋学校：哈尔滨工程大学'}}">  张石洋</router-link>
     </div>
     <transition>
     <router-view/>
