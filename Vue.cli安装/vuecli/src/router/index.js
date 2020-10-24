@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import test2 from'../views/test2.vue'
 import  yueyue from'../views/yueyue.vue'
+import lujing from '../views/lujing.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path:"/yueyue",
     name:'yueyue',
     component:yueyue
+  },
+  {
+    path:"/lujing/:id/:name",
+    name:'lujing',
+    component:lujing
   },
 
   {
