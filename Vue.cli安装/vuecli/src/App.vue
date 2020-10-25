@@ -12,6 +12,9 @@
      <router-link :to="{path:'/home',query:{id:2112018020228,name :'姓名：张石洋学校：哈尔滨工程大学'}}">  张</router-link>
     <button @click="go()">点击||</button>
     <button @click="gotest()">点击传参</button>
+    <button @click="goback()">后退</button>
+    <button @click="goforward()">前进</button>
+    <button @click="gohome()">首页</button>
     </div>
     <transition>
     <router-view/>
@@ -25,6 +28,13 @@ export default {
   },
   gotest(){
     this.$router.push({name:'lujing',params:{id:6666 ,name:'张三'}})
+  },goback(){
+    this.$router.go(-1)
+  },goforward(){
+    this.$router.go(1)
+  },
+  gohome(){
+    this.$router.go('/')
   }
 
   }
