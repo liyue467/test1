@@ -2,20 +2,34 @@
   <div id="app">
     <router-link to="/yes"> </router-link>
     <div id="nav">
-      <!-- <router-link to="/home">Home</router-link> | -->
+      <!-- <router-link to="/home">Home</router-link | -->
       <router-link to="/about">About</router-link>|
       <!-- <router-link to="/yueyue">❤李悦❤|</router-link> -->
-      <router-link :to="{name:'yueyue',params:{name:'李悦悦' ,age:20}}">李悦❤张石洋|</router-link>
+      <router-link :to="{name:'yueyue',params:{name:'李悦悦' ,age:20}}">李悦|张|</router-link>
       <router-link to="/lujing/3/李四">路径|</router-link>
     
      <router-link :to="{path:'/test2',query:{id:20183164,name:'姓名：李悦  学校:黑龙江大学'}}">李悦|</router-link>
-     <router-link :to="{path:'/home',query:{id:2112018020228,name :'姓名：张石洋学校：哈尔滨工程大学'}}">  张石洋</router-link>
+     <router-link :to="{path:'/home',query:{id:2112018020228,name :'姓名：张石洋学校：哈尔滨工程大学'}}">  张</router-link>
+    <button @click="go()">点击||</button>
+    <button @click="gotest()">点击传参</button>
     </div>
     <transition>
     <router-view/>
     </transition>
   </div>
 </template>
+<script>
+export default {
+  methods:{go(){
+    this.$router.push('/test2')
+  },
+  gotest(){
+    this.$router.push({name:'lujing',params:{id:6666 ,name:'张三'}})
+  }
+
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
